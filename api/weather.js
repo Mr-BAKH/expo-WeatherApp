@@ -1,9 +1,7 @@
-// import axios from 'axios';
 import axios from 'axios';
 import { apiKey } from '../constanst';
 
 const locationsEndpoint = params => `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${params.cityName}?key=${apiKey}`
-
 
 const GETAPI = async(endpoint)=>{
     const options ={
@@ -11,7 +9,6 @@ const GETAPI = async(endpoint)=>{
         url: endpoint
     } 
     try{
-        console.log('call Axios!')
         const response = await axios.request(options)
         return response.data;
     }catch(err){
@@ -20,10 +17,6 @@ const GETAPI = async(endpoint)=>{
     }
 }
 
-
-// export const fetchWeatherForecast = params =>{
-//     return GETAPI(forecastEndpoint(params))
-// }
 export const fetchLocations = (params) =>{
     return GETAPI(locationsEndpoint(params))
 }
